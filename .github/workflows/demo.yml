@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         with:
           path: ~/.npm
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
@@ -27,9 +27,9 @@ jobs:
       script-file: ${{ steps.publish-js-filename.outputs.script-file }}
     steps:
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         with:
           path: ~/.npm
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
@@ -43,7 +43,7 @@ jobs:
           echo "script-file=$script_file" >> "$GITHUB_OUTPUT"
         id: publish-js-filename
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: dist-files
           path: dist
@@ -54,7 +54,7 @@ jobs:
       - name: Output script filename
         run: echo "${{ needs.build.outputs.script-file }}"
       - name: Download build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: dist-files
       - name: List
