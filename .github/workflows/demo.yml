@@ -39,6 +39,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Output script filename
+        run: echo "${{ needs.build.outputs.script-file }}"
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
