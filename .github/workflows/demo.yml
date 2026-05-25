@@ -60,4 +60,4 @@ jobs:
       - name: List
         run: ls -al
       - name: Deploy
-        run: echo "Deploying..."
+        run: echo "Deploying the latest build..."
